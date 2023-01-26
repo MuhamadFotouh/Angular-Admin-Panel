@@ -1,0 +1,11 @@
+footer {
+    background-color: var(--black);
+  }
+  footer a {
+    color: #ddd;
+  }
+  footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  

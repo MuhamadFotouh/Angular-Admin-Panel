@@ -1,0 +1,52 @@
+<div class="mt-5">
+  <div class="container bg-light p-5 rounded-5">
+    <form [formGroup]="loginForm" (submit)="login($event)">
+      <div class="form-group">
+        <label for="exampleInputName1">Name</label>
+        <input type="email" class="form-control" id="exampleInputName1" aria-describedby="emailHelp"
+          placeholder="Enter Name" formControlName="name" />
+        <ng-container *ngIf="getName.touched" id="nameHelp" class="form-text">
+          <p *ngIf="getName.hasError('required')" class="text-danger">
+            Name is required
+          </p>
+          <p *ngIf="getName.hasError('minlength')" class="text-danger">
+            Name must be 3 chars at least
+          </p>
+          <p *ngIf="getName.hasError('pattern')" class="text-danger">
+            Name must be chars only
+          </p>
+        </ng-container>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Enter email" formControlName="email" />
+        <ng-container *ngIf="getEmail.touched" id="emailHelp" class="form-text">
+          <p *ngIf="getEmail.hasError('required')" class="text-danger">
+            Email is required
+          </p>
+          <p *ngIf="getEmail.hasError('email')" class="text-danger">
+            Enter a valid Email
+          </p>
+        </ng-container>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password"
+          formControlName="password" />
+        <ng-container *ngIf="getPassword.touched" id="passwordHelp" class="form-text">
+          <p *ngIf="getPassword.hasError('required')" class="text-danger">
+            Password is required
+          </p>
+          <p *ngIf="getPassword.hasError('minlength')" class="text-danger">
+            Password must be 8 chars at least
+          </p>
+        </ng-container>
+      </div>
+      <div class="d-flex justify-content-center m-2">
+        <button type="submit" class="btn btn-success">{{userId? "Edit user": "Add new user"}} </button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>
